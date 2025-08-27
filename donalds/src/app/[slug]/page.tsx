@@ -2,7 +2,9 @@ import { db } from "@/lib/prisma";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
+import ConsumptionMethodOption from "@/app/[slug]/components/consumption-Method-Option"; 
+
 
 interface RestaurantPageProps {
   params: { slug: string };
@@ -31,17 +33,30 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
         />
         <h2 className="font-semibold">{restaurant.name}</h2>
       </div>
+
       {/* BEM VINDO */}
-      <div className="pt-34 text-center space-y-24">
+      <div className="pt-32 text-center space-y-8">
         <h3 className="text-2xl font-semibold">Seja bem-vindo!</h3>
-        <p className="opacity-55">Escolha como prefer aproveitar sua refeição. Estamos oferecer paticicidade e saber em cada datalhe!</p>
+        <p className="opacity-55">
+          Escolha como prefere aproveitar sua refeição. Estamos oferecendo
+          praticidade e sabor em cada detalhe!
+        </p>
       </div>
-      <div className="pt-14 grid grid-cols-2">
-        <Card>
-          <CardContent className="fle flex-col items-center gap-8 py-8">
-          <Button variant="secondary" className="rounded-full">Para comer aqui</Button>  
-          </CardContent>
-          </Card> 
+
+      {/* OPÇÕES */}
+      <div className="pt-14 grid grid-cols-2 gap-4">
+        <ConsumptionMethodOption
+          buttonText="Para comer aqui"
+          imageAlt="comer aqui"
+          imageUrl="/dine_in.png"
+        />
+
+        <ConsumptionMethodOption
+          buttonText="Para levar"
+          imageAlt="comer levar"
+          imageUrl="/takeaway.png"
+        />
+
       </div>
     </div>
   );
