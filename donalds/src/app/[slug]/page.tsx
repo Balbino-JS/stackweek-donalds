@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import ConsumptionMethodOption from "@/app/[slug]/components/consumption-Method-Option"; 
+import ConsumptionMethodOption from "@/app/[slug]/components/consumption-Method-Option";
 
 
 interface RestaurantPageProps {
@@ -55,7 +55,7 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
 
         <ConsumptionMethodOption
           option="TAKEAWAY"
-            slug={slug}
+          slug={slug}
           buttonText="Para levar"
           imageAlt="comer levar"
           imageUrl="/takeaway.png"

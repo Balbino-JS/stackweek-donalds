@@ -33,7 +33,7 @@ const ConsumptionMEthodOption = ({
                         className="object-contain" />
                 </div>
 
-                <Button variant="secondary" className="rounded-full">
+                <Button variant="secondary" className="rounded-full" asChild>
                     <Link href={`/${slug}/menu?consumptionMethod=${option}`}> {buttonText}</Link>
 
                 </Button>
