@@ -4,15 +4,13 @@ import ProductHeader from "./compnents/header";
 
 
 interface ProductPageProps {
-  params: { slug: string; productId: string };
+  params: Promise=<{ slug: string; productId: string }>;
 }
 
 const ProductPage = async ({ params }: ProductPageProps) => {
-  const { slug, productId } = params;
+  const { slug, productId } = await params;
 
-  const product = await db.product.findUnique({
-    where: { id: productId },
-  });
+  const product = await db.product.findUnique({ where: { id: productId } });
 
   if (!product) {
     return notFound();
