@@ -1,0 +1,33 @@
+import { db } from "@/lib/prisma";
+import { notFound } from "next/navigation";
+import ProductHeader from "./compnents/header";
+
+
+interface ProductPageProps {
+  params: { slug: string; productId: string };
+}
+
+const ProductPage = async ({ params }: ProductPageProps) => {
+  const { slug, productId } = params;
+
+  const product = await db.product.findUnique({
+    where: { id: productId },
+  });
+
+  if (!product) {
+    return notFound();
+  }
+
+  return (
+    <>
+
+        <ProductHeader product={product} />
+        <h1>Product page</h1>
+        <p>{slug}</p>
+        <p>{productId}</p>
+    
+    </>
+  );
+};
+
+export default ProductPage;
