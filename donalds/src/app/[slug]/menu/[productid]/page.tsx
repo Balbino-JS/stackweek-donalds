@@ -4,7 +4,7 @@ import ProductHeader from "./compnents/header";
 
 
 interface ProductPageProps {
-  params: Promise=<{ slug: string; productId: string }>;
+  params: Promise<{ slug: string; productId: string }>;
 }
 
 const ProductPage = async ({ params }: ProductPageProps) => {
